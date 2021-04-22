@@ -5,6 +5,8 @@
 *.swp
 *.out
 *.log
+*.iml
+*.idea
 
 # rails specific
 *.sqlite3
@@ -64,7 +66,8 @@ jrebel.lic
 *.ipr
 *.iws
 .*.sw?
-.idea
+*.idea
+
 
 # paulp script
 /.lib/
