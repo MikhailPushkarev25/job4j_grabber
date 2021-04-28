@@ -19,6 +19,7 @@ public class SqlRuParse {
             System.out.println(href.attr("href"));
             System.out.println(href.text());
             System.out.println(date.text());
+            index += 2;
         }
     }
 }
