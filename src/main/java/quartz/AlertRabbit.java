@@ -13,17 +13,18 @@ import static org.quartz.TriggerBuilder.newTrigger;
 public class AlertRabbit {
     public static void main(String[] args) {
         Properties properties = new Properties();
-        try (InputStream io = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties")) {
-            properties.load(io);
-            if (io != null) {
-                io.close();
-            }
-            Class.forName(properties.getProperty("driver-class-name"));
-            Connection connection = DriverManager.getConnection(
-                    properties.getProperty("url"),
-                    properties.getProperty("username"),
-                    properties.getProperty("password")
-            );
+        try {
+        InputStream io = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties");
+        properties.load(io);
+        if (io != null) {
+            io.close();
+        }
+        Class.forName(properties.getProperty("driver-class-name"));
+        Connection connection = DriverManager.getConnection(
+                properties.getProperty("url"),
+                properties.getProperty("username"),
+                properties.getProperty("password")
+        );
             PreparedStatement statement = connection.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS rabbit (id serial primary key, created_date timestamp);"
             );
