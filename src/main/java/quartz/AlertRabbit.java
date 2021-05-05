@@ -67,10 +67,9 @@ public class AlertRabbit {
             System.out.println("Rabbit runs here ...");
             Connection connection = (Connection) context.getJobDetail().getJobDataMap().get("connect");
 
-            try {
-                PreparedStatement statement = connection.prepareStatement(
+               try(PreparedStatement statement = connection.prepareStatement(
                         "INSERT INTO rabbit(created_date) values (?);"
-                );
+                )) {
                 statement.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
                 statement.executeUpdate();
             } catch (SQLException s) {
