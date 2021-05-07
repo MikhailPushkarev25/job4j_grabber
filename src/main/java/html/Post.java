@@ -11,6 +11,10 @@ public class Post {
     private String viewing;
     private LocalDate data;
 
+    public Post() {
+
+    }
+
     public Post(String topic, String author, String answer, String viewing, LocalDate data) {
         this.topic = topic;
         this.author = author;
@@ -37,6 +41,26 @@ public class Post {
 
     public LocalDate getData() {
         return data;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public void setViewing(String viewing) {
+        this.viewing = viewing;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     @Override
