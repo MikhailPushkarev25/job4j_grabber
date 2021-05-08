@@ -1,6 +1,6 @@
 package html;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Post {
@@ -9,18 +9,26 @@ public class Post {
     private String author;
     private String answer;
     private String viewing;
-    private LocalDate data;
+    private LocalDateTime data;
 
     public Post() {
 
     }
 
-    public Post(String topic, String author, String answer, String viewing, LocalDate data) {
+    public Post(String topic, LocalDateTime data) {
+        this.topic = topic;
+        this.data = data;
+    }
+
+    public Post(String topic, String author, String answer, String viewing, LocalDateTime data) {
         this.topic = topic;
         this.author = author;
         this.answer = answer;
         this.viewing = viewing;
         this.data = data;
+    }
+
+    public Post(String text, String answer, String attr, LocalDateTime parse) {
     }
 
     public String getTopic() {
@@ -39,7 +47,7 @@ public class Post {
         return viewing;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
@@ -59,7 +67,7 @@ public class Post {
         this.viewing = viewing;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
