@@ -1,12 +1,13 @@
 package grabber;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Store {
 
-    void save(Post post);
+    void save(Post post) throws SQLException;
 
     List<Post> getAll();
 
-    Post findById(String id);
+    Post findById(int id);
 }
