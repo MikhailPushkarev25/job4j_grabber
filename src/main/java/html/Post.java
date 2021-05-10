@@ -71,22 +71,4 @@ public class Post {
         this.data = data;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
-        return Objects.equals(topic, post.topic) && Objects.equals(author, post.author) && Objects.equals(answer, post.answer) && Objects.equals(viewing, post.viewing) && Objects.equals(data, post.data);
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "topic='" + topic + '\'' +
-                ", author='" + author + '\'' +
-                ", answer='" + answer + '\'' +
-                ", viewing='" + viewing + '\'' +
-                ", data=" + data +
-                '}';
-    }
 }

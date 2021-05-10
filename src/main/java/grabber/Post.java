@@ -1,21 +1,47 @@
 package grabber;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Post {
-
+    private int id;
     private String text;
     private String link;
     private String heading;
+    private LocalDate created;
 
     public Post() {
 
     }
 
-    public Post(String heading, String link, String text) {
+    public Post(String heading, String link, String text, LocalDate created) {
         this.text = text;
         this.link = link;
         this.heading = heading;
+        this.created = created;
+    }
+
+    public Post(int id, String heading, String link, String text, LocalDate created) {
+        this.id = id;
+        this.text = text;
+        this.link = link;
+        this.heading = heading;
+        this.created = created;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
     }
 
     public String getText() {
@@ -44,10 +70,8 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post{" +
-                "text='" + text + '\'' +
-                ", link='" + link + '\'' +
-                ", heading='" + heading + '\'' +
-                '}';
+        return "Post{" + "id=" + id + ", text='" + text + '\''
+                + ", link='" + link + '\'' + ", heading='" + heading + '\''
+                 + ", created=" + created + '}';
     }
 }

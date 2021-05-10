@@ -16,8 +16,10 @@ public class ParseSql {
         System.out.println(post.getTopic());
         System.out.println(post.getAnswer());
     }
+
     public static void main(String[] args) throws IOException {
-        String url = "https://www.sql.ru/forum/1325330/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t";
+        String url = "https://www.sql.ru/forum/1325330"
+                + "/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t";
         detail(url);
     }
 }

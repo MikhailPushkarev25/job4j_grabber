@@ -31,7 +31,6 @@ public class SqlRuDateTimeParser implements DateTimeParser {
         months.put("дек", 12);
     }
 
-
     @Override
     public LocalDateTime parse(String parse) {
         String[] str = parse.split(", ");
