@@ -3,19 +3,22 @@ package quartz;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-import java.util.Properties;
+import java.util.*;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 public class AlertRabbit {
+
+    @SuppressWarnings({"checkstyle:LineLength", "checkstyle:OperatorWrap"})
     public static void main(String[] args) {
+
         Properties properties = new Properties();
-            try (InputStream io = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties")) {
+            try (InputStream io = AlertRabbit.class.getClassLoader().
+                    getResourceAsStream("postsql.properties")) {
                 properties.load(io);
                 if (io != null) {
                     io.close();
@@ -26,9 +29,10 @@ public class AlertRabbit {
                         properties.getProperty("username"),
                         properties.getProperty("password")
                 )) {
-                    try (PreparedStatement statement = connection.prepareStatement(
-                            "CREATE TABLE IF NOT EXISTS rabbit (id serial primary key, created_date timestamp);"
-                    )) {
+                    try (PreparedStatement statement = connection.
+                            prepareStatement(
+                            "CREATE TABLE IF NOT EXISTS rabbit "
+                                    + "(id serial primary key, created_date timestamp);")) {
                         statement.executeUpdate();
                         statement.execute();
                         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
@@ -39,7 +43,8 @@ public class AlertRabbit {
                                 .usingJobData(data)
                                 .build();
                         SimpleScheduleBuilder times = simpleSchedule()
-                                .withIntervalInSeconds(Integer.parseInt(properties.getProperty("rabbit.interval")))
+                                .withIntervalInSeconds(Integer
+                                        .parseInt(properties.getProperty("rabbit.interval")))
                                 .repeatForever();
                         SimpleTrigger trigger = newTrigger()
                                 .startNow()
@@ -65,9 +70,10 @@ public class AlertRabbit {
         @Override
         public void execute(JobExecutionContext context) {
             System.out.println("Rabbit runs here ...");
-            Connection connection = (Connection) context.getJobDetail().getJobDataMap().get("connect");
+            Connection connection = (Connection) context.
+                    getJobDetail().getJobDataMap().get("connect");
 
-               try(PreparedStatement statement = connection.prepareStatement(
+               try (PreparedStatement statement = connection.prepareStatement(
                         "INSERT INTO rabbit(created_date) values (?);"
                 )) {
                 statement.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
