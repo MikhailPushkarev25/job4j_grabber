@@ -41,7 +41,7 @@ public class SqlRuParse implements Parse {
     }
 
     @Override
-    public Post detail(String link) throws IOException {
+    public html.Post detail(String link) throws IOException {
         Document doc = Jsoup.connect(link).get();
         Elements row = doc.select(".msgBody");
         Elements row1 = doc.select(".msgFooter");

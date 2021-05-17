@@ -11,7 +11,7 @@ public class Post {
     private String viewing;
     private LocalDateTime data;
 
-    public Post() {
+    public Post(String text, Post detail, String attr, LocalDateTime parse) {
 
     }
 
@@ -29,6 +29,10 @@ public class Post {
     }
 
     public Post(String text, String answer, String attr, LocalDateTime parse) {
+    }
+
+    public Post() {
+
     }
 
     public String getTopic() {

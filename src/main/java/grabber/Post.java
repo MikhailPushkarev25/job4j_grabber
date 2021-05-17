@@ -1,6 +1,7 @@
 package grabber;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Post {
     private int id;

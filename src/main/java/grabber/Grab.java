@@ -5,5 +5,6 @@ import org.quartz.SchedulerException;
 
 public interface Grab {
 
-    void init(Parse parse, Store store, Scheduler scheduler) throws SchedulerException;
+    @SuppressWarnings("checkstyle:EmptyLineSeparator")
+    void init(html.Parse parse, Store store, Scheduler scheduler) throws SchedulerException;
 }
