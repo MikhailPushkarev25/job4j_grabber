@@ -22,7 +22,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <db.url>jdbc:postgresql://localhost/grabber</db.url>
+                <db.url>jdbc:postgresql://localhost/newSql</db.url>
                 <db.username>postgres</db.username>
                 <db.driver>org.postgresql.Driver</db.driver>
             </properties>
@@ -30,7 +30,7 @@
         <profile>
             <id>test</id>
             <properties>
-                <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>
+                <db.url>jdbc:postgresql://127.0.0.1:5432/newSql</db.url>
                 <db.username>postgres</db.username>
                 <db.password>password</db.password>
                 <db.driver>org.postgresql.Driver</db.driver>
@@ -39,7 +39,7 @@
         <profile>
             <id>production</id>
             <properties>
-                <db.url>jdbc:postgresql://127.0.0.1:5432/grabber</db.url>
+                <db.url>jdbc:postgresql://127.0.0.1:5432/newSql</db.url>
                 <db.username>postgres</db.username>
                 <db.password>password</db.password>
                 <db.driver>org.postgresql.Driver</db.driver>
