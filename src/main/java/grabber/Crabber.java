@@ -44,7 +44,7 @@ public class Crabber implements Grab {
                 .usingJobData(data)
                 .build();
         SimpleScheduleBuilder times = simpleSchedule()
-                .withIntervalInSeconds(Integer.parseInt(cfg.getProperty("time")))
+                .withIntervalInSeconds(Integer.parseInt(cfg.getProperty("times")))
                 .repeatForever();
         Trigger trigger = newTrigger()
                 .startNow()
