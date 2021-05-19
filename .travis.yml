@@ -6,6 +6,7 @@ jdk:
 services:
   - postgresql
 
+
 before_install:
   - psql -c 'create database newSql;' -U postgres
 
