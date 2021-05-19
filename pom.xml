@@ -37,10 +37,7 @@
             </properties>
         </profile>
         <profile>
-            <id>travis</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            <id>production</id>
             <properties>
                 <db.url>jdbc:postgresql://127.0.0.1:5432/newSql</db.url>
                 <db.username>postgres</db.username>
