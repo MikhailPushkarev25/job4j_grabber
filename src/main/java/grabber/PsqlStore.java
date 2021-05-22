@@ -1,7 +1,11 @@
 package grabber;
+import html.SqlRuParse;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -33,8 +37,8 @@ public class PsqlStore implements Store, AutoCloseable {
             ps.setString(1, post.getHeading());
             ps.setString(2, post.getLink());
             ps.setString(3, post.getText());
-            ps.setDate(4, java.sql.Date.valueOf(post.getCreated()));
-            ps.executeUpdate();
+            ps.setTimestamp(4, Timestamp.valueOf(post.getCreated()));
+            ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,15 +48,15 @@ public class PsqlStore implements Store, AutoCloseable {
     public List<Post> getAll() {
         List<Post> list = new ArrayList<>();
         try (PreparedStatement ps = cnn.prepareStatement("select * from post")) {
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Post post = new Post(rs.getInt("id"),
-                            rs.getString("name"),
-                            rs.getString("link"),
-                            rs.getString("text"),
-                            LocalDate.parse(rs.getString("created"))
-                    );
-                    list.add(post);
+            try (ResultSet set = ps.executeQuery()) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String name = set.getString("name");
+                    String text = set.getString("text");
+                    String link = set.getString("link");
+                    LocalDateTime date = set.getTimestamp("created").toLocalDateTime();
+                    list.add(new Post(id, name, text, link, date));
+                  ps.executeUpdate();
                 }
             }
         } catch (Exception e) {
@@ -62,16 +66,18 @@ public class PsqlStore implements Store, AutoCloseable {
         }
 
     @Override
-    public Post findById(int id) {
+    public Post findById(String id) {
         Post post = new Post();
         try (PreparedStatement ps = cnn.prepareStatement("select * from post id = ?")) {
-            ps.setInt(1, id);
+            ps.setInt(1, Integer.parseInt(id));
             try (ResultSet set = ps.executeQuery()) {
                 while (set.next()) {
-                    post.setHeading(set.getString("heading"));
-                    post.setLink(set.getString("link"));
-                    post.setText(set.getString("text"));
-                    post.setCreated(LocalDate.parse(set.getString("created")));
+                   int idPost = set.getInt("id");
+                   String name = set.getString("name");
+                   String text = set.getString("text");
+                   String link = set.getString("link");
+                    LocalDateTime date = set.getTimestamp("created").toLocalDateTime();
+                    post = new Post(idPost, name, text, link, date);
 
                 }
             }
@@ -88,17 +94,16 @@ public class PsqlStore implements Store, AutoCloseable {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        Properties config = new Properties();
-        PsqlStore psqlStore = new PsqlStore(config);
-        Post pp = new Post(1, "1http//00", "1dbf0", "1text_dbf0", LocalDate.parse("2020-02-02"));
-        psqlStore.save(pp);
-        pp = new Post(1, "2http//00", "2dbf0", "2text_dbf0", LocalDate.parse("2020-02-02"));
-        psqlStore.save(pp);
-        System.out.println(psqlStore.getAll().get(1).toString());
-        System.out.println(psqlStore.findById(1).toString());
+    @SuppressWarnings("checkstyle:EmptyLineSeparator")
+    public static void main(String[] args) throws IOException, SQLException {
+        PsqlStore ps = new PsqlStore(new Properties());
+        ConnectionRol.create(ps.cnn);
+        SqlRuParse parse = new SqlRuParse();
+        parse.list("https://www.sql.ru/forum/job-offers");
+        ps.getAll().forEach(System.out::println);
+        System.out.println(ps.findById("160"));
     }
-    }
+}
 
 
 

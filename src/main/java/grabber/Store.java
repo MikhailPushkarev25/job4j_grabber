@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface Store {
 
-    void save(Post post) throws SQLException;
+    void save(Post post);
 
     List<Post> getAll();
 
-    Post findById(int id);
+    Post findById(String id);
 }

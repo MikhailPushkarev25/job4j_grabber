@@ -4,11 +4,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Post {
-    private int id;
+    private String id;
     private String text;
     private String link;
     private String heading;
-    private LocalDate created;
+    private String created;
+
+    public Post(int id, String name, String link, String text, LocalDate created) {
+
+    }
 
     public Post() {
 
@@ -18,10 +22,9 @@ public class Post {
         this.text = text;
         this.link = link;
         this.heading = heading;
-        this.created = created;
     }
 
-    public Post(int id, String heading, String link, String text, LocalDate created) {
+    public Post(String id, String heading, String link, String text, String created) {
         this.id = id;
         this.text = text;
         this.link = link;
@@ -29,19 +32,27 @@ public class Post {
         this.created = created;
     }
 
-    public int getId() {
+    public Post(int idPost, String name, String text, String link, LocalDateTime date) {
+        this.id = id;
+        this.text = text;
+        this.link = link;
+        this.heading = heading;
+        this.created = created;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public LocalDate getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 
