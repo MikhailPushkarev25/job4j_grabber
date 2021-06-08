@@ -1,38 +1,45 @@
-Create table company(
-	id integer not null,
-	name character varying,
-	CONSTRAINT company_key PRIMARY KEY (id)
+Есть таблица встреч (id, имя), есть таблица юзеров (id, имя).
+
+Нужно доработать модель базы данных, чтобы пользователи учавствовать во встречах.
+У каждого участника встречи может быть разный статус участия - например подтвердил участие, отклонил.
+
+create table users(
+	id serial primary key,
+	name varchar(100)
 );
 
-create table person(
-	id integer not null,
-	name character varying,
-	company_id integer,
-	CONSTRAINT person_pkey PRIMARY KEY (id)
+create table meeting(
+	id serial primary key,
+	name varchar(100)
 );
 
-insert into company(id, name) values (1111, 'company1');
-insert into company(id, name) values (2222, 'company2');
-insert into company(id, name) values (3333, 'company3');
-insert into company(id, name) values (4444, 'company4');
-insert into company(id, name) values (5555, 'company5');
+create table users_meeting(
+	users_id int references users(id),
+	meeting_id int references meeting(id),
+	name varchar(100)
+);
 
-insert into person(id, name, company_id) values (1111, 'name1', 1);
-insert into person(id, name, company_id) values (2222, 'name2', 2);
-insert into person(id, name, company_id) values (3333, 'name3', 3);
-insert into person(id, name, company_id) values (4444, 'name4', 4);
-insert into person(id, name, company_id) values (5555, 'name5', 5);
-insert into person(id, name, company_id) values (6666, 'name6', 6);
+insert into users(name) values ('users1');
+insert into users(name) values ('users2');
+insert into users(name) values ('users3');
 
-select * from company;
-select * from person;
+insert into meeting(name) values ('meeting1');
+insert into meeting(name) values ('meeting2');
+insert into meeting(name) values ('meeting3');
 
-select p.name company, c.name person from person p join company c on p.company_id = c.id where p.company_id != 5;
-select c.name company, count(c.name) person_count
-from person p join company c  on p.company_id = c.id
-group by c.name
-order by person_count desc
-limit 1;
+insert into users_meeting(users_id, meeting_id, name) values (1, 1, 'подтвержден');
+insert into users_meeting(users_id, meeting_id, name) values (1, 2, 'нет');
+insert into users_meeting(users_id, meeting_id, name) values (1, 3, 'нет');
+insert into users_meeting(users_id, meeting_id, name) values (2, 2, 'подтвержден');
+insert into users_meeting(users_id, meeting_id, name) values (2, 3, 'нет');
+insert into users_meeting(users_id, meetng_id, name) values (3, 3, 'подтвержден');
 
+Нужно написать запрос, который получит список всех заяков и количество подтвердивших участников.
 
+select n.name, count(n.name) from meeting as n
+join users_meeting as num on n.id = num.meeting_id and num.name = 'подтвержден' group by n.name;
 
+Нужно получить все встречи, где не было ни заявки на посещение
+
+select n.name from meeting AS n
+join users_meeting as num on n.id = num.meeting_id and num.name is null group by n.name;
