@@ -42,4 +42,4 @@ join users_meeting as num on n.id = num.meeting_id and num.name = 'подтве�
 Нужно получить все встречи, где не было ни заявки на посещение
 
 select n.name from meeting AS n
- left join users_meeting as num on n.id = num.meeting_id and num.name is null;
+ left join users_meeting as num on n.id = num.meeting_id where num.name is null;
