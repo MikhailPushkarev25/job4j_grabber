@@ -40,9 +40,7 @@ public class GCDemo {
         info();
         for (int i = 0; i < 1000; i++) {
             new Person(i, "N" + i);
-            System.gc();
         }
-        System.gc();
         info();
     }
 }

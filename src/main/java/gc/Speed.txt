@@ -1,0 +1,65 @@
+ 1)Используя разные ключи запуска виртуальной машины установить различные виды сборщика мусора.
+
+ Параметры заданы следующие -Xmx4m -Xms4m -XX:+UseSerialGC -Xlog:gc*
+ [0.082s][info][gc] Using Serial
+ [0.684s][info][gc          ] GC(0) Pause Young (Allocation Failure) 1M->0M(3M) 2.803ms
+ [0.920s][info][gc          ] GC(1) Pause Young (Allocation Failure) 1M->1M(3M) 3.068ms
+
+ Параметры заданы следующие -Xmx4m -Xms4m -XX:+UseParallelGC -Xlog:gc*
+
+ [0.020s][info][gc] Using Parallel
+ [0.293s][info][gc          ] GC(0) Pause Young (Allocation Failure) 0M->0M(3M) 22.620ms
+ [0.362s][info][gc          ] GC(1) Pause Young (Allocation Failure) 0M->0M(3M) 1.825ms
+ [0.509s][info][gc          ] GC(2) Pause Young (Allocation Failure) 1M->0M(3M) 2.061ms
+ [0.574s][info][gc          ] GC(3) Pause Young (Allocation Failure) 1M->1M(3M) 2.158ms
+ [0.645s][info][gc          ] GC(4) Pause Young (Allocation Failure) 1M->1M(3M) 2.243ms
+ [0.762s][info][gc          ] GC(5) Pause Young (Allocation Failure) 2M->1M(3M) 4.918ms
+
+ Параметры заданы следующие -Xmx4m -Xms4m  -XX:+UseG1GC -Xlog:gc*
+
+ [0.020s][info][gc] Using G1
+ [0.397s][info][gc          ] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 1M->0M(4M) 33.919ms
+ [0.605s][info][gc          ] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 1M->1M(4M) 3.306ms
+ [0.841s][info][gc          ] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 2M->2M(4M) 3.601ms
+
+ Параметры заданы следующие -Xmx4m -Xms4m   -XX:+UseZGC -Xlog:gc*
+
+ [0.128s][info][gc,init] Initializing The Z Garbage Collector
+ [1.240s][info][gc          ] GC(0) Garbage Collection (Warmup) 2M(50%)->2M(50%)
+ [1.256s][info][gc          ] GC(1) Garbage Collection (Allocation Stall) 2M(50%)->2M(50%)
+ [1.256s][info][gc          ] Allocation Stall (main) 33.376ms
+ [1.261s][info][gc          ] GC(2) Garbage Collection (Allocation Stall) 2M(50%)->2M(50%)
+ [1.265s][info][gc          ] Allocation Stall (main) 8.601ms
+
+ Оценить поведение срабатывания различных типов сборщиков мусора для программы из первого урока данного модуля.
+ Под программой подразумевается класс MemTracker из проекта job4j_tracker
+
+  G1 - часто вызывает young and old сборщики мусора
+       * время работы 9.564ms
+       * Serial - гораздое реже запускает сборщики мусора
+       * время работы 5.154ms
+       * Parallel - чаще всех вызывает чистку young обьектов ну и в самом конце одну полную чистку
+       * время работы 8.904ms
+
+  Как вы считаете какой из сборщиков мусора подойдет
+  наиболее оптимально для приложения заявок из второго модуля?
+
+  2. Parallel GC
+
+  Это усовершенствованная версия сборщика GC. Он является Parallel, Stop The World, Copying, т.е. его единственное отличие в том,
+
+  что он выполняет сборку мусора в нескольких потоках. Подходит для более сложных клиентских приложений, где нет серьезных требований к скорости
+
+  сборки, но ее наличие было бы неплохим преимуществом.
+
+  3. Какой тип сборщика будет оптимален для серверного приложения?
+
+  4. G1
+
+  Мощный сборщик сборщик мусора, усовершенствованная версия CMS. Он является Parallel, Concurrent, Copying. Его особенностью является высокая
+
+  пропускная способность. Следовательно сборка мусора выполняется редко. Данный сборщик мусора используется для серверных
+  приложений требующих быстрого отклика и не терпящих долгих пауз на сборку мусора.
+
+
+
