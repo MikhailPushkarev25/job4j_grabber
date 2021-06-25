@@ -4,8 +4,7 @@ import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.Benchmark;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.*;
 
 public class UniqueTest {
 
@@ -19,6 +18,19 @@ public class UniqueTest {
         for (String s : text) {
             if (!check.contains(s)) {
                 rsl = false;
+                break;
+            }
+        }
+        return rsl;
+    }
+
+    public static boolean isSize(String originText, String duplicateText) {
+        boolean rsl = false;
+        List<String> list = new ArrayList<>();
+        list.add(originText);
+        for (String s : list) {
+            if (s.equals(duplicateText)) {
+                rsl = true;
             }
         }
         return rsl;
@@ -27,6 +39,11 @@ public class UniqueTest {
     @Benchmark
     public void genTest() {
         isEquals("Покупаю танхаус за городрм", "Покупаю за городом танхаус");
+    }
+
+    @Benchmark
+    public void genTest2() {
+        isSize("Я покупаю", "Я покупаю");
     }
 
     public static void main(String[] args) throws IOException {

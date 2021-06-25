@@ -22,4 +22,11 @@ class UniqueTestTest {
         String text = "A mouse is eaten by a cat";
         assertThat(UniqueTest.isEquals(origin, text), is(false));
     }
+
+    @Test
+    public void isSize() {
+        String origin = "Я покупаю";
+        String duplicate = "Я покупаю";
+        assertTrue(UniqueTest.isSize(origin, duplicate));
+    }
 }

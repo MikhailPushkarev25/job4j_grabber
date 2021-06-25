@@ -1,7 +1,7 @@
 # JMH version: 1.28
 # VM version: JDK 15.0.1, Java HotSpot(TM) 64-Bit Server VM, 15.0.1+9-18
 # VM invoker: C:\Program Files\Java\jdk-15.0.1\bin\java.exe
-# VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\lib\idea_rt.jar=49722:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\bin -Dfile.encoding=UTF-8
+# VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\lib\idea_rt.jar=60816:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: full + dont-inline hint
 # Warmup: 5 iterations, 10 s each
 # Measurement: 5 iterations, 10 s each
@@ -10,87 +10,157 @@
 # Benchmark mode: Throughput, ops/time
 # Benchmark: gc.UniqueTest.genTest
 
-# Run progress: 0,00% complete, ETA 00:08:20
+# Run progress: 0,00% complete, ETA 00:16:40
 # Fork: 1 of 5
-# Warmup Iteration   1: 1196359,398 ops/s
-# Warmup Iteration   2: 1286045,458 ops/s
-# Warmup Iteration   3: 1204898,075 ops/s
-# Warmup Iteration   4: 1310321,817 ops/s
-# Warmup Iteration   5: 1192887,791 ops/s
-Iteration   1: 1177356,773 ops/s
-Iteration   2: 1213033,535 ops/s
-Iteration   3: 1222870,572 ops/s
-Iteration   4: 1214788,086 ops/s
-Iteration   5: 1190754,066 ops/s
+# Warmup Iteration   1: 1141537,095 ops/s
+# Warmup Iteration   2: 1221841,617 ops/s
+# Warmup Iteration   3: 1225122,088 ops/s
+# Warmup Iteration   4: 1214397,641 ops/s
+# Warmup Iteration   5: 1242475,026 ops/s
+Iteration   1: 1258024,788 ops/s
+Iteration   2: 1219671,970 ops/s
+Iteration   3: 1216672,555 ops/s
+Iteration   4: 1225731,126 ops/s
+Iteration   5: 1240757,096 ops/s
 
-# Run progress: 20,00% complete, ETA 00:06:49
+# Run progress: 10,00% complete, ETA 00:15:14
 # Fork: 2 of 5
-# Warmup Iteration   1: 1146271,258 ops/s
-# Warmup Iteration   2: 1257723,046 ops/s
-# Warmup Iteration   3: 1256350,017 ops/s
-# Warmup Iteration   4: 1303445,179 ops/s
-# Warmup Iteration   5: 1312819,054 ops/s
-Iteration   1: 1305610,494 ops/s
-Iteration   2: 1270308,290 ops/s
-Iteration   3: 1184319,873 ops/s
-Iteration   4: 1214435,546 ops/s
-Iteration   5: 1163585,621 ops/s
+# Warmup Iteration   1: 1174636,605 ops/s
+# Warmup Iteration   2: 1271302,005 ops/s
+# Warmup Iteration   3: 1272713,213 ops/s
+# Warmup Iteration   4: 1270053,685 ops/s
+# Warmup Iteration   5: 1273622,576 ops/s
+Iteration   1: 1249912,776 ops/s
+Iteration   2: 1247501,790 ops/s
+Iteration   3: 1268727,788 ops/s
+Iteration   4: 1268624,999 ops/s
+Iteration   5: 1259237,493 ops/s
 
-# Run progress: 40,00% complete, ETA 00:05:05
+# Run progress: 20,00% complete, ETA 00:13:31
 # Fork: 3 of 5
-# Warmup Iteration   1: 1094579,222 ops/s
-# Warmup Iteration   2: 1157881,618 ops/s
-# Warmup Iteration   3: 1231358,033 ops/s
-# Warmup Iteration   4: 1335808,183 ops/s
-# Warmup Iteration   5: 1242216,313 ops/s
-Iteration   1: 1199175,380 ops/s
-Iteration   2: 1168240,050 ops/s
-Iteration   3: 1187474,640 ops/s
-Iteration   4: 1185358,392 ops/s
-Iteration   5: 1202807,194 ops/s
+# Warmup Iteration   1: 1170671,592 ops/s
+# Warmup Iteration   2: 1214006,994 ops/s
+# Warmup Iteration   3: 1260717,567 ops/s
+# Warmup Iteration   4: 1249472,314 ops/s
+# Warmup Iteration   5: 1219608,604 ops/s
+Iteration   1: 1281564,042 ops/s
+Iteration   2: 1264220,154 ops/s
+Iteration   3: 1288988,298 ops/s
+Iteration   4: 1293450,159 ops/s
+Iteration   5: 1325738,299 ops/s
 
-# Run progress: 60,00% complete, ETA 00:03:23
+# Run progress: 30,00% complete, ETA 00:11:49
 # Fork: 4 of 5
-# Warmup Iteration   1: 1093124,189 ops/s
-# Warmup Iteration   2: 1164715,673 ops/s
-# Warmup Iteration   3: 1144552,933 ops/s
-# Warmup Iteration   4: 1160935,332 ops/s
-# Warmup Iteration   5: 1211601,670 ops/s
-Iteration   1: 1309931,976 ops/s
-Iteration   2: 1294438,559 ops/s
-Iteration   3: 1295548,712 ops/s
-Iteration   4: 1312031,194 ops/s
-Iteration   5: 1298630,077 ops/s
+# Warmup Iteration   1: 1142616,074 ops/s
+# Warmup Iteration   2: 1220277,350 ops/s
+# Warmup Iteration   3: 1232749,515 ops/s
+# Warmup Iteration   4: 1245259,070 ops/s
+# Warmup Iteration   5: 1201155,247 ops/s
+Iteration   1: 1197397,088 ops/s
+Iteration   2: 1231904,720 ops/s
+Iteration   3: 1238073,546 ops/s
+Iteration   4: 1210954,873 ops/s
+Iteration   5: 1213438,764 ops/s
 
-# Run progress: 80,00% complete, ETA 00:01:41
+# Run progress: 40,00% complete, ETA 00:10:08
 # Fork: 5 of 5
-# Warmup Iteration   1: 1253776,829 ops/s
-# Warmup Iteration   2: 1317592,916 ops/s
-# Warmup Iteration   3: 1341914,662 ops/s
-# Warmup Iteration   4: 1294138,146 ops/s
-# Warmup Iteration   5: 1335149,048 ops/s
-Iteration   1: 1319976,179 ops/s
-Iteration   2: 1309058,698 ops/s
-Iteration   3: 1372852,391 ops/s
-Iteration   4: 1331723,078 ops/s
-Iteration   5: 1320100,772 ops/s
+# Warmup Iteration   1: 1154526,513 ops/s
+# Warmup Iteration   2: 1211715,543 ops/s
+# Warmup Iteration   3: 1219322,694 ops/s
+# Warmup Iteration   4: 1205104,406 ops/s
+# Warmup Iteration   5: 1183361,540 ops/s
+Iteration   1: 1209957,678 ops/s
+Iteration   2: 1211223,957 ops/s
+Iteration   3: 1221158,033 ops/s
+Iteration   4: 1201917,804 ops/s
+Iteration   5: 1218836,753 ops/s
 
 
 Result "gc.UniqueTest.genTest":
-  1250576,406 ±(99.9%) 47666,097 ops/s [Average]
-  (min, avg, max) = (1163585,621, 1250576,406, 1372852,391), stdev = 63632,875
-  CI (99.9%): [1202910,309, 1298242,502] (assumes normal distribution)
+  1242547,462 ±(99.9%) 24575,765 ops/s [Average]
+  (min, avg, max) = (1197397,088, 1242547,462, 1325738,299), stdev = 32807,944
+  CI (99.9%): [1217971,697, 1267123,227] (assumes normal distribution)
 
 
-# Run complete. Total time: 00:08:27
+# JMH version: 1.28
+# VM version: JDK 15.0.1, Java HotSpot(TM) 64-Bit Server VM, 15.0.1+9-18
+# VM invoker: C:\Program Files\Java\jdk-15.0.1\bin\java.exe
+# VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\lib\idea_rt.jar=60816:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\bin -Dfile.encoding=UTF-8
+# Blackhole mode: full + dont-inline hint
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: gc.UniqueTest.genTest2
 
-REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
-why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
-experiments, perform baseline and negative tests that provide experimental control, make sure
-the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
-Do not assume the numbers tell you what you want them to tell.
+# Run progress: 50,00% complete, ETA 00:08:26
+# Fork: 1 of 5
+# Warmup Iteration   1: 46468727,332 ops/s
+# Warmup Iteration   2: 46581246,041 ops/s
+# Warmup Iteration   3: 54179685,959 ops/s
+# Warmup Iteration   4: 54141740,169 ops/s
+# Warmup Iteration   5: 54129612,498 ops/s
+Iteration   1: 54104926,704 ops/s
+Iteration   2: 54145210,735 ops/s
+Iteration   3: 53954308,235 ops/s
+Iteration   4: 53394063,820 ops/s
+Iteration   5: 54223271,042 ops/s
 
-Benchmark            Mode  Cnt        Score       Error  Units
-UniqueTest.genTest  thrpt   25  1250576,406 ± 47666,097  ops/s
+# Run progress: 60,00% complete, ETA 00:06:45
+# Fork: 2 of 5
+# Warmup Iteration   1: 46708820,668 ops/s
+# Warmup Iteration   2: 47264092,995 ops/s
+# Warmup Iteration   3: 54403723,086 ops/s
+# Warmup Iteration   4: 54537694,455 ops/s
+# Warmup Iteration   5: 54506360,319 ops/s
+Iteration   1: 54347809,494 ops/s
+Iteration   2: 54567131,824 ops/s
+Iteration   3: 54333090,337 ops/s
+Iteration   4: 54457990,489 ops/s
+Iteration   5: 54037779,876 ops/s
 
-Process finished with exit code 0
+# Run progress: 70,00% complete, ETA 00:05:04
+# Fork: 3 of 5
+# Warmup Iteration   1: 46210683,819 ops/s
+# Warmup Iteration   2: 46569171,904 ops/s
+# Warmup Iteration   3: 53751628,087 ops/s
+# Warmup Iteration   4: 54021432,672 ops/s
+# Warmup Iteration   5: 53682177,496 ops/s
+Iteration   1: 54054874,544 ops/s
+Iteration   2: 53314108,905 ops/s
+Iteration   3: 53828521,609 ops/s
+Iteration   4: 53615390,053 ops/s
+Iteration   5: 53716092,101 ops/s
+
+# Run progress: 80,00% complete, ETA 00:03:22
+# Fork: 4 of 5
+# Warmup Iteration   1: 43694452,880 ops/s
+# Warmup Iteration   2: 47574701,825 ops/s
+# Warmup Iteration   3: 54408603,545 ops/s
+# Warmup Iteration   4: 54587466,328 ops/s
+# Warmup Iteration   5: 54402731,131 ops/s
+Iteration   1: 54510518,649 ops/s
+Iteration   2: 54658826,935 ops/s
+Iteration   3: 54652317,067 ops/s
+Iteration   4: 54539957,292 ops/s
+Iteration   5: 54303769,354 ops/s
+
+# Run progress: 90,00% complete, ETA 00:01:41
+# Fork: 5 of 5
+# Warmup Iteration   1: 45478817,358 ops/s
+# Warmup Iteration   2: 46516831,235 ops/s
+# Warmup Iteration   3: 54462607,386 ops/s
+# Warmup Iteration   4: 54440868,785 ops/s
+# Warmup Iteration   5: 54430386,092 ops/s
+Iteration   1: 54255205,378 ops/s
+Iteration   2: 54174916,857 ops/s
+Iteration   3: 54541338,112 ops/s
+Iteration   4: 54599553,267 ops/s
+Iteration   5: 54259981,546 ops/s
+
+
+Result "gc.UniqueTest.genTest2":
+  54183638,169 ±(99.9%) 282941,140 ops/s [Average]
+  (min, avg, max) = (53314108,905, 54183638,169, 54658826,935), stdev = 377718,326
+  CI (99.9%): [53900697,029, 54466579,309] (assumes normal distribution)
