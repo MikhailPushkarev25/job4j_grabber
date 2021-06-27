@@ -3,8 +3,9 @@ package srp;
 import org.junit.Test;
 
 import java.util.Calendar;
+
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 public class MemStoreTest {
 
     @Test
@@ -82,5 +83,44 @@ public class MemStoreTest {
                 .append("<tr><td>").append(worker.getSalary()).append("</tr><td>")
                 .append("</table></body></html>");
         assertThat(prog.generate(em -> true), is(expect.toString()));
+    }
+
+    @Test
+    public void whenTestXml() {
+        MemStore store = new MemStore();
+        Calendar now = Calendar.getInstance();
+        Employee worker = new Employee("Ivan", now, now, 100);
+        store.add(worker);
+        Report xml = new ReportXml(store);
+        StringBuilder expect = new StringBuilder();
+        expect.append("<Employees>")
+                .append("<employee>")
+                .append("<name>").append(worker.getName()).append("</name>")
+                .append("<hired>").append(worker.getHired()).append("</hired>")
+                .append("<fired>").append(worker.getFired()).append("</fired>")
+                .append("<salary>").append(worker.getSalary()).append("</salary>")
+                .append("</employee")
+                .append("</Employees");
+
+        assertThat(xml.generate(em -> true), is(expect.toString()));
+    }
+
+    @Test
+    public void whenTestJSON() {
+        MemStore store = new MemStore();
+        Calendar now = Calendar.getInstance();
+        Employee worker = new Employee("Ivan", now, now, 100);
+        store.add(worker);
+        Report json = new ReportJSON(store);
+        StringBuilder expect = new StringBuilder();
+        expect.append("{\n");
+        expect.append("\"employee\":{\n");
+        expect.append("\"name\":\"").append(worker.getName());
+        expect.append("\",\n\"hired\":\"").append(worker.getHired());
+        expect.append("\",\n\"fired\":\"").append(worker.getFired());
+        expect.append("\",\n\"salary\":\"").append(worker.getSalary());
+        expect.append("\"\n");
+        expect.append("\n}");
+        assertThat(json.generate(em -> true), is(expect.toString()));
     }
 }
