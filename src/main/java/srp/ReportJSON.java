@@ -20,7 +20,7 @@ public class ReportJSON implements Report {
                     text.append("\",\n\"hired\":\"").append(employee.getHired());
                     text.append("\",\n\"fired\":\"").append(employee.getFired());
                     text.append("\",\n\"salary\":\"").append(employee.getSalary());
-                    text.append("\"\n");
+                    text.append("\"\n}");
         }
         text.append("\n}");
         return text.toString();
