@@ -13,7 +13,7 @@ public class ReportJSON implements Report {
     @Override
     public String generate(Predicate<Employee> filter) {
         StringBuilder text = new StringBuilder();
-        text.append("{\n");
+        text.append("[\n");
         text.append("\"employee\":{\n");
         for (Employee employee : store.findBy(filter)) {
             text.append("\"name\":\"").append(employee.getName());
@@ -22,7 +22,7 @@ public class ReportJSON implements Report {
                     text.append("\",\n\"salary\":\"").append(employee.getSalary());
                     text.append("\"\n}");
         }
-        text.append("\n}");
+        text.append("\n]");
         return text.toString();
     }
 }

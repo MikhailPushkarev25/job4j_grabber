@@ -113,14 +113,14 @@ public class MemStoreTest {
         store.add(worker);
         Report json = new ReportJSON(store);
         StringBuilder expect = new StringBuilder();
-        expect.append("{\n");
+        expect.append("[\n");
         expect.append("\"employee\":{\n");
         expect.append("\"name\":\"").append(worker.getName());
         expect.append("\",\n\"hired\":\"").append(worker.getHired());
         expect.append("\",\n\"fired\":\"").append(worker.getFired());
         expect.append("\",\n\"salary\":\"").append(worker.getSalary());
         expect.append("\"\n}");
-        expect.append("\n}");
+        expect.append("\n]");
         assertThat(json.generate(em -> true), is(expect.toString()));
     }
 }
