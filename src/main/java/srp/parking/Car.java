@@ -1,4 +1,6 @@
-package lsp;
+package srp.parking;
+
+import lsp.ParkingCar;
 
 public class Car implements ParkingCar {
     private final int size;

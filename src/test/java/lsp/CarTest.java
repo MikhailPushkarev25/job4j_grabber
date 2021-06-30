@@ -1,9 +1,10 @@
 package lsp;
 
 import org.junit.Test;
+import srp.parking.CargoCar;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class CarTest {
 

@@ -1,4 +1,7 @@
-package lsp;
+package srp.parking;
+
+import lsp.Auto;
+import lsp.CargoParking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +22,8 @@ public class CargoCar implements CargoParking {
 
     @Override
     public void forCargo(Auto auto, int place) {
-       if (place == size) {
-           list.add(auto);
-       }
+        if (place == size) {
+            list.add(auto);
+        }
     }
 }
