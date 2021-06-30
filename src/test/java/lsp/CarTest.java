@@ -10,19 +10,10 @@ public class CarTest {
     @Test
     public void whenTestCarPassenger() {
         Auto auto = new Auto("Volvo", 353);
-        Car car = new Car();
-        car.forCars(auto, 0);
-        assertThat(car.numberSeats(0), is(false));
+        CargoCar cargoCar = new CargoCar();
+        cargoCar.forCargo(auto, 0);
+        assertThat(cargoCar.numberSeats(0), is(false));
     }
-
-    @Test
-    public void whenTestCarPassengerTrue() {
-        Auto auto = new Auto("Mitsubishi", 890);
-        Car car = new Car();
-        car.forCars(auto, 1);
-        assertThat(car.numberSeats(1), is(true));
-    }
-
     @Test
     public void whenTestCargoCar() {
         Auto auto = new Auto("Kamaz", 353);
