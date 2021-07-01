@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControllQuality {
-    private Storage storage;
-    private List<Food> list = new ArrayList<>();
+    private List<Storage> storages = new ArrayList<>();
 
     public long res(Food food) {
         long one = food.getExpiredDate().toEpochDay() - food.getCreateDate().toEpochDay();
@@ -15,6 +14,8 @@ public class ControllQuality {
     }
 
    public void distribute(Food food) {
-      list.add(food);
+        for (Storage dist : storages) {
+            dist.add(food, res(food));
+        }
    }
 }
