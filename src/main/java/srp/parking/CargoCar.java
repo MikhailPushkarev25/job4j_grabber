@@ -1,29 +1,27 @@
 package srp.parking;
 
-import lsp.Auto;
-import lsp.CargoParking;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CargoCar implements CargoParking {
-
-    private List<Auto> list = new ArrayList<>();
-    private int size = 1;
-
-    @Override
-    public boolean numberSeats(int num) {
-        boolean rsl = false;
-        if (num > 0) {
-            rsl = true;
-        }
-        return rsl;
-    }
+    private int cars = 0;
+    private int cargo = 0;
+    private final List<ParkingCar> list = new ArrayList<>();
+    private final List<ParkingCar> list1 = new ArrayList<>();
 
     @Override
-    public void forCargo(Auto auto, int place) {
-        if (place == size) {
-            list.add(auto);
+    public boolean park(ParkingCar car) {
+        if (car.size() == 1) {
+            if (cars > 0) {
+                cars--;
+                return list.add(car);
+            }
+        } else {
+            if (cargo > 0) {
+                cargo--;
+                return list1.add(car);
+            }
         }
+        return false;
     }
 }
