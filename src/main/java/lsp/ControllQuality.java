@@ -18,4 +18,12 @@ public class ControllQuality {
             dist.add(food, res(food));
         }
    }
+
+   public void resort(Food food) {
+        List<Food> list = new ArrayList<>();
+        for (Storage st : storages) {
+          list.addAll(st.get());
+        }
+        distribute(food);
+   }
 }
