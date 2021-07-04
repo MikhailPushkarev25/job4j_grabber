@@ -16,6 +16,10 @@ public class Element {
         el = new ArrayList<>();
     }
 
+    public Element(String name) {
+        this.name = name;
+    }
+
     public Actions getActions() {
         return actions;
     }
@@ -26,6 +30,10 @@ public class Element {
 
     public List<Element> getEl() {
         return el;
+    }
+
+    public void act() {
+        actions.act();
     }
 
     public Element byName(String name) {

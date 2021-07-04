@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 public class Menu implements MenuStorage {
 
-    private final List<Element> elements;
+    private List<Element> elements;
 
     public Menu() {
         elements = new ArrayList<>();
