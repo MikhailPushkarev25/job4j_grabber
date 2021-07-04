@@ -22,4 +22,9 @@ public class Trash implements Storage {
             System.out.println("Скидка на данный товар");
         }
     }
+
+    @Override
+    public void remove(Food food) {
+        list.remove(food);
+    }
 }

@@ -23,7 +23,7 @@ public class ControllQuality {
         List<Food> list = new ArrayList<>();
         for (Storage st : storages) {
           list.addAll(st.get());
-          list.clear();
+          storages.remove(st);
         }
         distribute(food);
    }

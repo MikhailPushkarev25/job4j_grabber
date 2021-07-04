@@ -24,4 +24,9 @@ public class Shop implements Storage {
             System.out.println("Не то место для продуктов");
         }
     }
+
+    @Override
+    public void remove(Food food) {
+        list.remove(food);
+    }
 }

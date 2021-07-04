@@ -24,4 +24,9 @@ public class WareHouse implements Storage {
             System.out.println("Нет тот место для хранилища");
         }
     }
+
+    @Override
+    public void remove(Food food) {
+        list.remove(food);
+    }
 }
