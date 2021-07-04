@@ -19,6 +19,15 @@ public class CargoCarTest {
         CargoCar car = new CargoCar(1, 1);
         ParkingCar car1 = new Track(0);
         assertThat(car.park(car1), is(true));
+    }
+
+    @Test
+    public void whenTestTrackAndCarLight() {
+        CargoCar car = new CargoCar(1, 0);
+        ParkingCar car1 = new Car();
+        ParkingCar car2 = new Track(car1.size());
+        assertThat(car.park(car2), is(true));
+
 
     }
 }
