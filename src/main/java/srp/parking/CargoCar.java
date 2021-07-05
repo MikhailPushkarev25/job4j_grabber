@@ -37,7 +37,7 @@ public class CargoCar implements CargoParking {
             cargoCar[cargo++] = car;
             rsl = true;
         } else {
-            if (cars - carLight.length > car.size()) {
+            if (carLight.length - cars > car.size()) {
                 while (cars <= car.size()) {
                     carLight[cars++] = car;
                 }

@@ -23,9 +23,9 @@ public class CargoCarTest {
 
     @Test
     public void whenTestTrackAndCarLight() {
-        CargoCar car = new CargoCar(1, 0);
+        CargoCar car = new CargoCar(5, 0);
         ParkingCar car1 = new Car();
-        ParkingCar car2 = new Track(car1.size());
+        ParkingCar car2 = new Track(3);
         assertThat(car.park(car2), is(true));
 
 
