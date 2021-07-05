@@ -13,7 +13,9 @@ public class WareHouse implements Storage {
 
     @Override
     public List<Food> get() {
-        return list;
+        List<Food> copy = new ArrayList<>(list);
+        list.clear();
+        return copy;
     }
 
     @Override
