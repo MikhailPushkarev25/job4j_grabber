@@ -15,7 +15,7 @@ import java.util.Set;
  * а в первом случае нужно что бы детали зависели от абстркации
  */
 public class Number {
-    public Set<Integer> set = new HashSet<>();
+    private Set<Integer> set = new HashSet<>();
 
     public boolean num(int i) {
         if (set.isEmpty()) {

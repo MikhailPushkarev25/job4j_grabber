@@ -1,4 +1,4 @@
 package tdd;
 
-public class AccountCinema implements Account{
+public class AccountCinema implements Account {
 }

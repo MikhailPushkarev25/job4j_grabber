@@ -24,9 +24,9 @@ public class Exp {
         }
     }
 
-    class res extends Exp {
+    class Res extends Exp {
 
-        public res(String name) {
+        public Res(String name) {
             super(name);
         }
 

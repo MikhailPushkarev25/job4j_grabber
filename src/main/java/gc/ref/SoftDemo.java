@@ -14,10 +14,12 @@ public class SoftDemo {
 
     /**
      * В первом методе не смотря на то, что мы за'null'уляем сильную ссылку,
-     * на объект остается безопасная ссылки, а это значит объект будет удален только при нехватке памяти.
+     * на объект остается безопасная ссылки, а это значит
+     * объект будет удален только при нехватке памяти.
      * <p>
      * Во втором методе, мы создаем много объектов, но на них ссылается безопасная ссылка.
-     * Если мы при создании большое количество объектов при малом хипе, мы увидим, что объекты начнут удаляться, т.к. станем не хватать памяти.
+     * Если мы при создании большое количество объектов при малом хипе, мы увидим,
+     * что объекты начнут удаляться, т.к. станем не хватать памяти.
      */
 
     private static void example1() {
@@ -31,7 +33,7 @@ public class SoftDemo {
         List<SoftReference<Object>> objects = new ArrayList<>();
         for (int i = 0; i < 100_000_000; i++) {
             objects.add(new SoftReference<Object>(new Object() {
-                String value = String.valueOf(System.currentTimeMillis());
+                private String value = String.valueOf(System.currentTimeMillis());
 
                 @Override
                 protected void finalize() throws Throwable {
@@ -51,7 +53,8 @@ public class SoftDemo {
     }
 
     /**
-     * Корректным использованием безопасных ссылок является сначала получение сильной ссылки на данные,
+     * Корректным использованием безопасных
+     * ссылок является сначала получение сильной ссылки на данные,
      * а потом работы с сильной ссылок.
      *
      * Это гарантирует, что в интервалах получения сильной ссылки из безопасной GC не затрет объект.
@@ -62,9 +65,7 @@ public class SoftDemo {
     private static void unsafe() {
         List<SoftReference<Object>> someData = new ArrayList<>();
         if (someData.get(0).get() != null) {
-            //do something
-        } else {
-            // do something
+            someData.clear();
         }
         someData.get(0).get();
     }
@@ -73,7 +74,7 @@ public class SoftDemo {
         List<SoftReference<Object>> someData = new ArrayList<>();
         Object strong = someData.get(0).get();
         if (strong != null) {
-        } else {
+            someData.clear();
         }
 
     }

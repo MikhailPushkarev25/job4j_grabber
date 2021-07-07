@@ -70,7 +70,8 @@ public class MemStoreTest {
         Report prog = new ReportProg(store);
         StringBuilder expect = new StringBuilder();
         expect.append("<!DOCTYPE HTML>")
-                .append("<html><head><meta charset=\"utf-8\"><title>Report</title></head><body><table>")
+                .append("<html><head><meta charset="
+                        + "\"utf-8\"><title>Report</title></head><body><table>")
                 .append("<tr>")
                 .append("<th>Name<th>")
                 .append("<th>Hired<th>")

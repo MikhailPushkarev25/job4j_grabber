@@ -21,7 +21,10 @@ public class App {
         }
         while (count) {
             System.out.println(
-                    "\n\nI have " + objects.size() + " objects in use, about " + (objects.size() * 10) + " MB. " + "\nWhat would you like me to do?\n" + "1. Create some objects\n" + "2. Remove some objects\n" + "0. Quit");
+                    "\n\nI have " + objects.size()
+                            + " objects in use, about " + (objects.size() * 10)
+                            + " MB. " + "\nWhat would you like me to do?\n"
+                            + "1. Create some objects\n" + "2. Remove some objects\n" + "0. Quit");
 
             input = in.readLine();
             if ((input != null) && (input.length() >= 1)) {

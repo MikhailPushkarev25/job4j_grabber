@@ -27,7 +27,5 @@ public class CargoCarTest {
         ParkingCar car1 = new Car();
         ParkingCar car2 = new Track(3);
         assertThat(car.park(car2), is(true));
-
-
     }
 }

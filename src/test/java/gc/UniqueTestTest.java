@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UniqueTestTest {
 
-
     @Test
     public void isEquals() {
         String origin = "My cat eats a mouse and milk";

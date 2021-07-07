@@ -26,7 +26,7 @@ public class UserDemo {
     public static void main(String[] args) {
         disableWarning();
         System.out.println(sizeOf(new User()));
-        System.out.println(sizeOf(new User("Mikhail",12)));
+        System.out.println(sizeOf(new User("Mikhail", 12)));
         info();
         for (int i = 0; i < 1000; i++) {
             new User("Mikhail" + i, i);

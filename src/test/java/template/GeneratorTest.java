@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,7 +22,7 @@ class GeneratorTest {
         assertThat(rsl, is(result));
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void whenNoKeys() {
         GenDemo demo = new GenDemo();
         String keys = "I am a ${name}, who are ${subject}?";
@@ -31,7 +31,7 @@ class GeneratorTest {
         String result = demo.produce(keys, map);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void whenNotParam() {
         GenDemo demo = new GenDemo();
         String keys = "I am a ${name}, who are ${subject}";

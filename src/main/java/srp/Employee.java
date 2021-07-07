@@ -58,7 +58,10 @@ public class Employee {
             return false;
         }
         Employee employee = (Employee) o;
-        return Double.compare(employee.salary, salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(hired, employee.hired) && Objects.equals(fired, employee.fired);
+        return Double.compare(employee.salary, salary) == 0
+                && Objects.equals(name, employee.name)
+                && Objects.equals(hired, employee.hired)
+                && Objects.equals(fired, employee.fired);
     }
 
     @Override

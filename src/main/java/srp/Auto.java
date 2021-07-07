@@ -8,7 +8,7 @@ package srp;
  *
  */
 public class Auto {
-    public String model;
+    private String model;
 
     public Auto(String model) {
         this.model = model;

@@ -14,7 +14,7 @@ public class Find implements Calc {
 
     @Override
     public double triangle(double p, double a) {
-        return (p * a)/2;
+        return (p * a) / 2;
     }
 
     public void print() {

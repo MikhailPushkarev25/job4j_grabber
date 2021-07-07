@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Trash implements Storage {
 
-    List<Food> list = new ArrayList<>();
+    private List<Food> list = new ArrayList<>();
 
     public Trash() {
 
