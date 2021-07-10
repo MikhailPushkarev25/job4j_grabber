@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Person {
 
-    private final boolean sex;
+    private boolean sex;
     private final int age;
     private final Contact contact;
     private final String[] statues;
@@ -14,6 +14,14 @@ public class Person {
         this.age = age;
         this.contact = contact;
         this.statues = statues;
+    }
+
+    public boolean isSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     @Override
