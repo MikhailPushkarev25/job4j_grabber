@@ -18,6 +18,26 @@ public class User {
         this.num = num;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Work getWork() {
+        return work;
+    }
+
+    public int[] getNum() {
+        return num;
+    }
+
     @Override
     public String toString() {
         return "User{"
