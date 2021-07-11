@@ -2,24 +2,24 @@
 
 create table student(
 	id serial primary key,
-	name varchar(255)
+	name varchar(255),
+	school_id int references school(id)
 );
 
 create table school(
 	id serial primary key,
-	name varchar(255),
-	student_id int references student(id)
+	name varchar(255)
 );
 
-insert into student(name) values('Вася');
-insert into student(name) values('Леша');
+insert into student(name, school_id) values('Вася', 1);
+insert into student(name, school_id) values('Леша', 2);
 
-insert into school(name, student_id) values('Математика', 1);
-insert into school(name, student_id) values('Литература', 2);
+insert into school(name) values('Математика');
+insert into school(name) values('Литература');
 
 select * from school;
 
-select * from student where id in (select id from school);
+select * from school where id in (select id from student);
 
 // one to one
 
