@@ -4,6 +4,10 @@ public class Concat {
 
     private String address;
 
+    public Concat() {
+
+    }
+
     public Concat(String address) {
         this.address = address;
     }
