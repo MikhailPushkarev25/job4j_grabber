@@ -40,21 +40,33 @@ public class TableEditor implements AutoCloseable {
     public void dropTable(String tableName) throws Exception {
 
         try (Statement statement = connection.createStatement()) {
-            String sql = "drop_table " + tableName;
+            String sql = String.format(
+                    "drop table %s;",
+                           tableName
+            );
             statement.execute(sql);
         }
     }
 
     public void addColumn(String tableName, String columnName, String type) throws Exception {
         try (Statement statement = connection.createStatement()) {
-            String sql = "see table " + tableName + " add column " + columnName +  " " + type;
+            String sql = String.format(
+                    "alter table %s add column if not exists %s %s;",
+                    tableName,
+                    columnName,
+                    type
+            );
             statement.execute(sql);
         }
     }
 
     public void dropColumn(String tableName, String columnName) throws Exception {
         try (Statement statement = connection.createStatement()) {
-            String sql = "see table " + tableName + " drop table " + columnName;
+            String sql = String.format(
+                    "alter table %s drop column if not exists %s;",
+                    tableName,
+                    columnName
+            );
             statement.execute(sql);
         }
     }
@@ -62,9 +74,12 @@ public class TableEditor implements AutoCloseable {
     public void renameColumn(String tableName, String columnName, String newColumnName)
             throws Exception {
         try (Statement statement = connection.createStatement()) {
-            String sql = "see table " + tableName
-                    + " rename table " + columnName
-                    + " a " + newColumnName;
+            String sql = String.format(
+                    "alter table %s rename column %s to %s;",
+                    tableName,
+                    columnName,
+                    newColumnName
+            );
             statement.execute(sql);
         }
     }
